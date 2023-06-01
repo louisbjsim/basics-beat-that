@@ -20,32 +20,21 @@ var main = function (input) {
       5. After both players have rolled, the player with the higher number wins.<br><br></small>`;
     gameMode = "playerOne";
   } else if (gameMode == "playerOne") {
-    playerOneDiceResults = [];
     for (var counter = 0; counter < 2; counter += 1) {
       playerOneDiceResults.push(diceRoll());
     }
-
-    if (playerOneDiceResults[0] === playerOneDiceResults[1]) {
-      // Reroll if both dice have the same number
-      myOutputValue = `<center><br><br>
-        <big>Hello Player 1!!</big><br><br>
-        <small><br><br></small>
-        Oops! You rolled the same number (${playerOneDiceResults[0]}) for both dice. Let's reroll.<br><br>
-        Click [submit] to roll again.</center>`;
-    } else {
-      myOutputValue = `<center><br><br>
-        <big>Hello Player 1!!</big><br><br>
-        <small><br><br></small>
-        For Dice 1 >>> you rolled ${playerOneDiceResults[0]}<br><br>
-        For Dice 2 >>> you rolled ${playerOneDiceResults[1]}<br><br> 
-        <br><br>
-        <big><b>Select the first number of your score</b></big><br><br>
-        <strong><big>Enter <big>1</big> (for ${playerOneDiceResults[0]})<br><br>
-        OR<br><br>
-        Enter <big>2</big> (for ${playerOneDiceResults[1]})</center></strong></big>
-        <br><br>`;
-      gameMode = "playerOneChoice";
-    }
+    myOutputValue = `<center><br><br>
+      <big>Hello Player 1!!</big><br><br>
+      <small><br><br></small>
+      For Dice 1 >>> you rolled ${playerOneDiceResults[0]}<br><br>
+      For Dice 2 >>> you rolled ${playerOneDiceResults[1]}<br><br> 
+      <br><br>
+      <big><b>Select the first number of your score</b></big><br><br>
+      <strong><big>Enter <big>1</big> (for ${playerOneDiceResults[0]})<br><br>
+      OR<br><br>
+      Enter <big>2</big> (for ${playerOneDiceResults[1]})</center></strong></big>
+      <br><br>`;
+    gameMode = "playerOneChoice";
   } else if (gameMode == "playerOneChoice") {
     if (input == 1) {
       playerOneScore = playerOneDiceResults[0] * 10 + playerOneDiceResults[1];
@@ -62,32 +51,21 @@ var main = function (input) {
       It is now Player 2's turn...</center>`;
     gameMode = "playerTwo";
   } else if (gameMode == "playerTwo") {
-    playerTwoDiceResults = [];
     for (var counter = 0; counter < 2; counter += 1) {
       playerTwoDiceResults.push(diceRoll());
     }
-
-    if (playerTwoDiceResults[0] === playerTwoDiceResults[1]) {
-      // Reroll if both dice have the same number
-      myOutputValue = `<center><br><br>
-        <big>Hello Player 2!!</big><br><br>
-        <small><br><br></small>
-        Oops! You rolled the same number (${playerTwoDiceResults[0]}) for both dice. Let's reroll.<br><br>
-        Click [submit] to roll again.</center>`;
-    } else {
-      myOutputValue = `<center><br><br>
-        <big>Hello Player 2!!</big><br><br>
-        <small><br><br></small>
-        For Dice 1 >>> you rolled ${playerTwoDiceResults[0]}<br><br>
-        For Dice 2 >>> you rolled ${playerTwoDiceResults[1]}<br><br> 
-        <br><br>
-        <big><b>Select the first number of your score</b></big><br><br>
-        <strong><big>Enter <big>1</big> (for ${playerTwoDiceResults[0]})<br><br>
-        OR<br><br>
-        Enter <big>2</big> (for ${playerTwoDiceResults[1]})</center></strong></big>
-        <br><br>`;
-      gameMode = "playerTwoChoice";
-    }
+    myOutputValue = `<center><br><br>
+      <big>Hello Player 2!!</big><br><br>
+      <small><br><br></small>
+      For Dice 1 >>> you rolled ${playerTwoDiceResults[0]}<br><br>
+      For Dice 2 >>> you rolled ${playerTwoDiceResults[1]}<br><br> 
+      <br><br>
+      <big><b>Select the first number of your score</b></big><br><br>
+      <strong><big>Enter <big>1</big> (for ${playerTwoDiceResults[0]})<br><br>
+      OR<br><br>
+      Enter <big>2</big> (for ${playerTwoDiceResults[1]})</center></strong></big>
+      <br><br>`;
+    gameMode = "playerTwoChoice";
   } else if (gameMode == "playerTwoChoice") {
     if (input == 1) {
       playerTwoScore = playerTwoDiceResults[0] * 10 + playerTwoDiceResults[1];
